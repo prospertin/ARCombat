@@ -1,0 +1,726 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B2229C9E1FA93925000823C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2229C9D1FA93925000823C3 /* AppDelegate.swift */; };
+		B2229CA01FA93925000823C3 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = B2229C9F1FA93925000823C3 /* art.scnassets */; };
+		B2229CA21FA93925000823C3 /* DroneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2229CA11FA93925000823C3 /* DroneViewController.swift */; };
+		B2229CA51FA93925000823C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2229CA31FA93925000823C3 /* Main.storyboard */; };
+		B2229CA71FA93925000823C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2229CA61FA93925000823C3 /* Assets.xcassets */; };
+		B2229CAA1FA93925000823C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2229CA81FA93925000823C3 /* LaunchScreen.storyboard */; };
+		B2229CB51FA93925000823C3 /* ARCombatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2229CB41FA93925000823C3 /* ARCombatTests.swift */; };
+		B2229CC01FA93925000823C3 /* ARCombatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2229CBF1FA93925000823C3 /* ARCombatUITests.swift */; };
+		B247DE531FCE567400E2C4AB /* DronePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247DE521FCE567400E2C4AB /* DronePresenter.swift */; };
+		B247DE551FCE56C300E2C4AB /* DroneProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247DE541FCE56C300E2C4AB /* DroneProtocols.swift */; };
+		B247DE571FCE5B9E00E2C4AB /* DroneEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247DE561FCE5B9E00E2C4AB /* DroneEntity.swift */; };
+		B247DE591FCE5BD700E2C4AB /* DroneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247DE581FCE5BD700E2C4AB /* DroneRouter.swift */; };
+		B247DE5B1FCE5C0E00E2C4AB /* DroneInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247DE5A1FCE5C0E00E2C4AB /* DroneInteractor.swift */; };
+		B247DE621FCF1D2800E2C4AB /* DroneDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247DE611FCF1D2800E2C4AB /* DroneDataManager.swift */; };
+		B2DB25CE1FCBAB4800FBD195 /* DroneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DB25CD1FCBAB4800FBD195 /* DroneViewModel.swift */; };
+		B2DB25D01FCBACF200FBD195 /* DroneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DB25CF1FCBACF200FBD195 /* DroneView.swift */; };
+		E78B704BC5DB568824B67868 /* Pods_ARCombat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 094E5D3F7879F7E26414F1D3 /* Pods_ARCombat.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B2229CB11FA93925000823C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B2229C921FA93925000823C3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B2229C991FA93925000823C3;
+			remoteInfo = ARCombat;
+		};
+		B2229CBC1FA93925000823C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B2229C921FA93925000823C3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B2229C991FA93925000823C3;
+			remoteInfo = ARCombat;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		094E5D3F7879F7E26414F1D3 /* Pods_ARCombat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARCombat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA6657B7B12D706A20103DD1 /* Pods-ARCombat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARCombat.release.xcconfig"; path = "Pods/Target Support Files/Pods-ARCombat/Pods-ARCombat.release.xcconfig"; sourceTree = "<group>"; };
+		B2229C9A1FA93925000823C3 /* ARCombat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARCombat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2229C9D1FA93925000823C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B2229C9F1FA93925000823C3 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		B2229CA11FA93925000823C3 /* DroneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneViewController.swift; sourceTree = "<group>"; };
+		B2229CA41FA93925000823C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B2229CA61FA93925000823C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B2229CA91FA93925000823C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B2229CAB1FA93925000823C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2229CB01FA93925000823C3 /* ARCombatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARCombatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2229CB41FA93925000823C3 /* ARCombatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCombatTests.swift; sourceTree = "<group>"; };
+		B2229CB61FA93925000823C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2229CBB1FA93925000823C3 /* ARCombatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARCombatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2229CBF1FA93925000823C3 /* ARCombatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCombatUITests.swift; sourceTree = "<group>"; };
+		B2229CC11FA93925000823C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B247DE521FCE567400E2C4AB /* DronePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DronePresenter.swift; sourceTree = "<group>"; };
+		B247DE541FCE56C300E2C4AB /* DroneProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneProtocols.swift; sourceTree = "<group>"; };
+		B247DE561FCE5B9E00E2C4AB /* DroneEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneEntity.swift; sourceTree = "<group>"; };
+		B247DE581FCE5BD700E2C4AB /* DroneRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneRouter.swift; sourceTree = "<group>"; };
+		B247DE5A1FCE5C0E00E2C4AB /* DroneInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneInteractor.swift; sourceTree = "<group>"; };
+		B247DE611FCF1D2800E2C4AB /* DroneDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneDataManager.swift; sourceTree = "<group>"; };
+		B2DB25CD1FCBAB4800FBD195 /* DroneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneViewModel.swift; sourceTree = "<group>"; };
+		B2DB25CF1FCBACF200FBD195 /* DroneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneView.swift; sourceTree = "<group>"; };
+		E1A61EE4EF6806C683AA3B79 /* Pods-ARCombat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARCombat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ARCombat/Pods-ARCombat.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B2229C971FA93925000823C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E78B704BC5DB568824B67868 /* Pods_ARCombat.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2229CAD1FA93925000823C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2229CB81FA93925000823C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0E2BE0460C1CEBBB91F8F0AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				094E5D3F7879F7E26414F1D3 /* Pods_ARCombat.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8240039BA8AA3C4DB8B82CEF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E1A61EE4EF6806C683AA3B79 /* Pods-ARCombat.debug.xcconfig */,
+				AA6657B7B12D706A20103DD1 /* Pods-ARCombat.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B2229C911FA93925000823C3 = {
+			isa = PBXGroup;
+			children = (
+				B2229C9C1FA93925000823C3 /* ARCombat */,
+				B2229CB31FA93925000823C3 /* ARCombatTests */,
+				B2229CBE1FA93925000823C3 /* ARCombatUITests */,
+				B2229C9B1FA93925000823C3 /* Products */,
+				8240039BA8AA3C4DB8B82CEF /* Pods */,
+				0E2BE0460C1CEBBB91F8F0AF /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B2229C9B1FA93925000823C3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B2229C9A1FA93925000823C3 /* ARCombat.app */,
+				B2229CB01FA93925000823C3 /* ARCombatTests.xctest */,
+				B2229CBB1FA93925000823C3 /* ARCombatUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B2229C9C1FA93925000823C3 /* ARCombat */ = {
+			isa = PBXGroup;
+			children = (
+				B247DE541FCE56C300E2C4AB /* DroneProtocols.swift */,
+				B247DE5C1FCE5CD800E2C4AB /* View */,
+				B247DE5E1FCE5D0600E2C4AB /* Presenter */,
+				B247DE5D1FCE5CE800E2C4AB /* Interactor */,
+				B247DE5F1FCE749700E2C4AB /* Entity */,
+				B247DE601FCE74A700E2C4AB /* Router */,
+				B2229C9D1FA93925000823C3 /* AppDelegate.swift */,
+				B2DB25CD1FCBAB4800FBD195 /* DroneViewModel.swift */,
+				B247DE611FCF1D2800E2C4AB /* DroneDataManager.swift */,
+				B2229C9F1FA93925000823C3 /* art.scnassets */,
+				B2229CA31FA93925000823C3 /* Main.storyboard */,
+				B2229CA61FA93925000823C3 /* Assets.xcassets */,
+				B2229CA81FA93925000823C3 /* LaunchScreen.storyboard */,
+				B2229CAB1FA93925000823C3 /* Info.plist */,
+			);
+			path = ARCombat;
+			sourceTree = "<group>";
+		};
+		B2229CB31FA93925000823C3 /* ARCombatTests */ = {
+			isa = PBXGroup;
+			children = (
+				B2229CB41FA93925000823C3 /* ARCombatTests.swift */,
+				B2229CB61FA93925000823C3 /* Info.plist */,
+			);
+			path = ARCombatTests;
+			sourceTree = "<group>";
+		};
+		B2229CBE1FA93925000823C3 /* ARCombatUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B2229CBF1FA93925000823C3 /* ARCombatUITests.swift */,
+				B2229CC11FA93925000823C3 /* Info.plist */,
+			);
+			path = ARCombatUITests;
+			sourceTree = "<group>";
+		};
+		B247DE5C1FCE5CD800E2C4AB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B2DB25CF1FCBACF200FBD195 /* DroneView.swift */,
+				B2229CA11FA93925000823C3 /* DroneViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B247DE5D1FCE5CE800E2C4AB /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				B247DE5A1FCE5C0E00E2C4AB /* DroneInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		B247DE5E1FCE5D0600E2C4AB /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				B247DE521FCE567400E2C4AB /* DronePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		B247DE5F1FCE749700E2C4AB /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				B247DE561FCE5B9E00E2C4AB /* DroneEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		B247DE601FCE74A700E2C4AB /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				B247DE581FCE5BD700E2C4AB /* DroneRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B2229C991FA93925000823C3 /* ARCombat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2229CC41FA93925000823C3 /* Build configuration list for PBXNativeTarget "ARCombat" */;
+			buildPhases = (
+				89927DA430A63073D89E5CE1 /* [CP] Check Pods Manifest.lock */,
+				B2229C961FA93925000823C3 /* Sources */,
+				B2229C971FA93925000823C3 /* Frameworks */,
+				B2229C981FA93925000823C3 /* Resources */,
+				2FDD5BED4CFD5E0B96B1B73F /* [CP] Embed Pods Frameworks */,
+				BCD709F5B9E218798B135C52 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ARCombat;
+			productName = ARCombat;
+			productReference = B2229C9A1FA93925000823C3 /* ARCombat.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B2229CAF1FA93925000823C3 /* ARCombatTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2229CC71FA93925000823C3 /* Build configuration list for PBXNativeTarget "ARCombatTests" */;
+			buildPhases = (
+				B2229CAC1FA93925000823C3 /* Sources */,
+				B2229CAD1FA93925000823C3 /* Frameworks */,
+				B2229CAE1FA93925000823C3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B2229CB21FA93925000823C3 /* PBXTargetDependency */,
+			);
+			name = ARCombatTests;
+			productName = ARCombatTests;
+			productReference = B2229CB01FA93925000823C3 /* ARCombatTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B2229CBA1FA93925000823C3 /* ARCombatUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2229CCA1FA93925000823C3 /* Build configuration list for PBXNativeTarget "ARCombatUITests" */;
+			buildPhases = (
+				B2229CB71FA93925000823C3 /* Sources */,
+				B2229CB81FA93925000823C3 /* Frameworks */,
+				B2229CB91FA93925000823C3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B2229CBD1FA93925000823C3 /* PBXTargetDependency */,
+			);
+			name = ARCombatUITests;
+			productName = ARCombatUITests;
+			productReference = B2229CBB1FA93925000823C3 /* ARCombatUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B2229C921FA93925000823C3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = Prospertin;
+				TargetAttributes = {
+					B2229C991FA93925000823C3 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+					};
+					B2229CAF1FA93925000823C3 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = B2229C991FA93925000823C3;
+					};
+					B2229CBA1FA93925000823C3 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = B2229C991FA93925000823C3;
+					};
+				};
+			};
+			buildConfigurationList = B2229C951FA93925000823C3 /* Build configuration list for PBXProject "ARCombat" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B2229C911FA93925000823C3;
+			productRefGroup = B2229C9B1FA93925000823C3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B2229C991FA93925000823C3 /* ARCombat */,
+				B2229CAF1FA93925000823C3 /* ARCombatTests */,
+				B2229CBA1FA93925000823C3 /* ARCombatUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B2229C981FA93925000823C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2229CA01FA93925000823C3 /* art.scnassets in Resources */,
+				B2229CAA1FA93925000823C3 /* LaunchScreen.storyboard in Resources */,
+				B2229CA71FA93925000823C3 /* Assets.xcassets in Resources */,
+				B2229CA51FA93925000823C3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2229CAE1FA93925000823C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2229CB91FA93925000823C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2FDD5BED4CFD5E0B96B1B73F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ARCombat/Pods-ARCombat-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ARCombat/Pods-ARCombat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		89927DA430A63073D89E5CE1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ARCombat-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BCD709F5B9E218798B135C52 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ARCombat/Pods-ARCombat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B2229C961FA93925000823C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B247DE551FCE56C300E2C4AB /* DroneProtocols.swift in Sources */,
+				B2229CA21FA93925000823C3 /* DroneViewController.swift in Sources */,
+				B247DE531FCE567400E2C4AB /* DronePresenter.swift in Sources */,
+				B247DE571FCE5B9E00E2C4AB /* DroneEntity.swift in Sources */,
+				B247DE5B1FCE5C0E00E2C4AB /* DroneInteractor.swift in Sources */,
+				B2229C9E1FA93925000823C3 /* AppDelegate.swift in Sources */,
+				B247DE621FCF1D2800E2C4AB /* DroneDataManager.swift in Sources */,
+				B247DE591FCE5BD700E2C4AB /* DroneRouter.swift in Sources */,
+				B2DB25CE1FCBAB4800FBD195 /* DroneViewModel.swift in Sources */,
+				B2DB25D01FCBACF200FBD195 /* DroneView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2229CAC1FA93925000823C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2229CB51FA93925000823C3 /* ARCombatTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2229CB71FA93925000823C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2229CC01FA93925000823C3 /* ARCombatUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B2229CB21FA93925000823C3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B2229C991FA93925000823C3 /* ARCombat */;
+			targetProxy = B2229CB11FA93925000823C3 /* PBXContainerItemProxy */;
+		};
+		B2229CBD1FA93925000823C3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B2229C991FA93925000823C3 /* ARCombat */;
+			targetProxy = B2229CBC1FA93925000823C3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B2229CA31FA93925000823C3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B2229CA41FA93925000823C3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B2229CA81FA93925000823C3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B2229CA91FA93925000823C3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B2229CC21FA93925000823C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B2229CC31FA93925000823C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B2229CC51FA93925000823C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1A61EE4EF6806C683AA3B79 /* Pods-ARCombat.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TMG5A4ZFBZ;
+				INFOPLIST_FILE = ARCombat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.prospertin.ARCombat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B2229CC61FA93925000823C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA6657B7B12D706A20103DD1 /* Pods-ARCombat.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TMG5A4ZFBZ;
+				INFOPLIST_FILE = ARCombat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.prospertin.ARCombat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B2229CC81FA93925000823C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TMG5A4ZFBZ;
+				INFOPLIST_FILE = ARCombatTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.prospertin.ARCombatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARCombat.app/ARCombat";
+			};
+			name = Debug;
+		};
+		B2229CC91FA93925000823C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TMG5A4ZFBZ;
+				INFOPLIST_FILE = ARCombatTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.prospertin.ARCombatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARCombat.app/ARCombat";
+			};
+			name = Release;
+		};
+		B2229CCB1FA93925000823C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TMG5A4ZFBZ;
+				INFOPLIST_FILE = ARCombatUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.prospertin.ARCombatUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ARCombat;
+			};
+			name = Debug;
+		};
+		B2229CCC1FA93925000823C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TMG5A4ZFBZ;
+				INFOPLIST_FILE = ARCombatUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.prospertin.ARCombatUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ARCombat;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B2229C951FA93925000823C3 /* Build configuration list for PBXProject "ARCombat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2229CC21FA93925000823C3 /* Debug */,
+				B2229CC31FA93925000823C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B2229CC41FA93925000823C3 /* Build configuration list for PBXNativeTarget "ARCombat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2229CC51FA93925000823C3 /* Debug */,
+				B2229CC61FA93925000823C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B2229CC71FA93925000823C3 /* Build configuration list for PBXNativeTarget "ARCombatTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2229CC81FA93925000823C3 /* Debug */,
+				B2229CC91FA93925000823C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B2229CCA1FA93925000823C3 /* Build configuration list for PBXNativeTarget "ARCombatUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2229CCB1FA93925000823C3 /* Debug */,
+				B2229CCC1FA93925000823C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B2229C921FA93925000823C3 /* Project object */;
+}
