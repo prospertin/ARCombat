@@ -21,8 +21,10 @@
 		B247DE591FCE5BD700E2C4AB /* DroneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247DE581FCE5BD700E2C4AB /* DroneRouter.swift */; };
 		B247DE5B1FCE5C0E00E2C4AB /* DroneInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247DE5A1FCE5C0E00E2C4AB /* DroneInteractor.swift */; };
 		B247DE621FCF1D2800E2C4AB /* DroneDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247DE611FCF1D2800E2C4AB /* DroneDataManager.swift */; };
+		B24AADE01FEE41E300BAEB9D /* DroneViewBindingTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24AADDF1FEE41E300BAEB9D /* DroneViewBindingTarget.swift */; };
 		B2DB25CE1FCBAB4800FBD195 /* DroneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DB25CD1FCBAB4800FBD195 /* DroneViewModel.swift */; };
 		B2DB25D01FCBACF200FBD195 /* DroneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DB25CF1FCBACF200FBD195 /* DroneView.swift */; };
+		B2E725AD1FEAB8620034ED98 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E725AC1FEAB8620034ED98 /* Test.swift */; };
 		E78B704BC5DB568824B67868 /* Pods_ARCombat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 094E5D3F7879F7E26414F1D3 /* Pods_ARCombat.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,8 +68,10 @@
 		B247DE581FCE5BD700E2C4AB /* DroneRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneRouter.swift; sourceTree = "<group>"; };
 		B247DE5A1FCE5C0E00E2C4AB /* DroneInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneInteractor.swift; sourceTree = "<group>"; };
 		B247DE611FCF1D2800E2C4AB /* DroneDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneDataManager.swift; sourceTree = "<group>"; };
+		B24AADDF1FEE41E300BAEB9D /* DroneViewBindingTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneViewBindingTarget.swift; sourceTree = "<group>"; };
 		B2DB25CD1FCBAB4800FBD195 /* DroneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneViewModel.swift; sourceTree = "<group>"; };
 		B2DB25CF1FCBACF200FBD195 /* DroneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneView.swift; sourceTree = "<group>"; };
+		B2E725AC1FEAB8620034ED98 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		E1A61EE4EF6806C683AA3B79 /* Pods-ARCombat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARCombat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ARCombat/Pods-ARCombat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,6 +157,7 @@
 				B2229CA61FA93925000823C3 /* Assets.xcassets */,
 				B2229CA81FA93925000823C3 /* LaunchScreen.storyboard */,
 				B2229CAB1FA93925000823C3 /* Info.plist */,
+				B2E725AC1FEAB8620034ED98 /* Test.swift */,
 			);
 			path = ARCombat;
 			sourceTree = "<group>";
@@ -180,6 +185,7 @@
 			children = (
 				B2DB25CF1FCBACF200FBD195 /* DroneView.swift */,
 				B2229CA11FA93925000823C3 /* DroneViewController.swift */,
+				B24AADDF1FEE41E300BAEB9D /* DroneViewBindingTarget.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -417,7 +423,9 @@
 				B247DE531FCE567400E2C4AB /* DronePresenter.swift in Sources */,
 				B247DE571FCE5B9E00E2C4AB /* DroneEntity.swift in Sources */,
 				B247DE5B1FCE5C0E00E2C4AB /* DroneInteractor.swift in Sources */,
+				B2E725AD1FEAB8620034ED98 /* Test.swift in Sources */,
 				B2229C9E1FA93925000823C3 /* AppDelegate.swift in Sources */,
+				B24AADE01FEE41E300BAEB9D /* DroneViewBindingTarget.swift in Sources */,
 				B247DE621FCF1D2800E2C4AB /* DroneDataManager.swift in Sources */,
 				B247DE591FCE5BD700E2C4AB /* DroneRouter.swift in Sources */,
 				B2DB25CE1FCBAB4800FBD195 /* DroneViewModel.swift in Sources */,

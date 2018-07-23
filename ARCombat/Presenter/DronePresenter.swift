@@ -9,6 +9,7 @@
 import Foundation
 
 public class DronePresenter: DronePresenterProtocol, DroneInteractorOutputProtocol {
+    
     weak var view: DroneViewProtocol?
     var interactor: DroneInteractorInputProtocol?
     var router: DroneRouterProtocol?
@@ -24,12 +25,11 @@ public class DronePresenter: DronePresenterProtocol, DroneInteractorOutputProtoc
     func startDrone(name: String) {
         interactor?.retrieveDrone(name: name)
     }
-    
+
     func moveDrone(entity: DroneEntity, dX: Float, dY: Float, dZ: Float) {
         entity.xPos += dX
         entity.yPos += dY
         entity.xPos += dZ
     }
-    
     
 }

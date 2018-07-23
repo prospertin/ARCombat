@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -14,33 +14,68 @@
             <objects>
                 <viewController storyboardIdentifier="DroneViewController" id="BV1-FR-VrT" customClass="DroneViewController" customModule="ARCombat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BlQ-Aa-hKX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mAF-5s-yIM">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mAF-5s-yIM">
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                                 <gestureRecognizers/>
                             </arscnView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0lO-XB-jzD">
-                                <rect key="frame" x="38" y="594" width="61" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0lO-XB-jzD">
+                                <rect key="frame" x="30" y="671" width="50" height="35"/>
                                 <gestureRecognizers/>
-                                <state key="normal" title="go left"/>
+                                <state key="normal" backgroundImage="left-arrow"/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="4aU-Jv-i3V" appends="YES" id="R9O-SV-xVD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gz-8z-lPp">
-                                <rect key="frame" x="270" y="604" width="71" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="go right"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gz-8z-lPp">
+                                <rect key="frame" x="344" y="672" width="50" height="34"/>
+                                <state key="normal" backgroundImage="right-arrow"/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="S00-9F-V7A" appends="YES" id="Chf-ml-hYu"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nl7-Z0-u2Y">
+                                <rect key="frame" x="100" y="666" width="35" height="50"/>
+                                <state key="normal" backgroundImage="up-arrow "/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="kZV-T0-905" appends="YES" id="pQ1-zo-HhJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jPV-X1-siL">
+                                <rect key="frame" x="290" y="661" width="34" height="50"/>
+                                <state key="normal" backgroundImage="down-arrow"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="hQT-9b-fBe" appends="YES" id="AIh-RT-WXu"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ipy-ZT-bvf">
+                                <rect key="frame" x="182.66666666666666" y="675" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchToggle:" destination="BV1-FR-VrT" eventType="valueChanged" id="EuM-2I-AVx"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9gz-8z-lPp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BlQ-Aa-hKX" secondAttribute="leading" constant="20" symbolic="YES" id="AY5-9a-lfj"/>
+                            <constraint firstItem="mAF-5s-yIM" firstAttribute="top" secondItem="UaX-3j-0Ob" secondAttribute="top" id="Avx-lo-2Qq"/>
+                            <constraint firstItem="mAF-5s-yIM" firstAttribute="leading" secondItem="UaX-3j-0Ob" secondAttribute="leading" id="EfG-3M-SYq"/>
+                            <constraint firstItem="UaX-3j-0Ob" firstAttribute="bottom" secondItem="jPV-X1-siL" secondAttribute="bottom" constant="25" id="G5X-rI-YuT"/>
+                            <constraint firstItem="UaX-3j-0Ob" firstAttribute="bottom" secondItem="mAF-5s-yIM" secondAttribute="bottom" id="GG2-8K-7jb"/>
+                            <constraint firstItem="UaX-3j-0Ob" firstAttribute="bottom" secondItem="ipy-ZT-bvf" secondAttribute="bottom" constant="30" id="HHs-CJ-asj"/>
+                            <constraint firstItem="UaX-3j-0Ob" firstAttribute="trailing" secondItem="mAF-5s-yIM" secondAttribute="trailing" id="Z8R-E0-XYq"/>
+                            <constraint firstItem="nl7-Z0-u2Y" firstAttribute="leading" secondItem="0lO-XB-jzD" secondAttribute="trailing" constant="20" id="ZoA-HK-cj7"/>
+                            <constraint firstItem="9gz-8z-lPp" firstAttribute="leading" secondItem="jPV-X1-siL" secondAttribute="trailing" constant="20" id="acg-au-jdF"/>
+                            <constraint firstItem="UaX-3j-0Ob" firstAttribute="bottom" secondItem="0lO-XB-jzD" secondAttribute="bottom" constant="30" id="dGs-Z4-4gF"/>
+                            <constraint firstItem="UaX-3j-0Ob" firstAttribute="trailing" secondItem="9gz-8z-lPp" secondAttribute="trailing" constant="20" id="g4p-me-l2q"/>
+                            <constraint firstItem="ipy-ZT-bvf" firstAttribute="centerX" secondItem="BlQ-Aa-hKX" secondAttribute="centerX" id="spp-pb-sJV"/>
+                            <constraint firstItem="UaX-3j-0Ob" firstAttribute="bottom" secondItem="9gz-8z-lPp" secondAttribute="bottom" constant="30" id="tnJ-GY-uev"/>
+                            <constraint firstItem="0lO-XB-jzD" firstAttribute="leading" secondItem="UaX-3j-0Ob" secondAttribute="leading" constant="30" id="uIJ-74-rsg"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0lO-XB-jzD" secondAttribute="trailing" constant="20" symbolic="YES" id="xnL-bu-eKx"/>
+                            <constraint firstItem="UaX-3j-0Ob" firstAttribute="bottom" secondItem="nl7-Z0-u2Y" secondAttribute="bottom" constant="20" id="zRW-q6-BCt"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="UaX-3j-0Ob"/>
                     </view>
                     <connections>
@@ -58,8 +93,24 @@
                         <action selector="moveRightLongPressed:" destination="BV1-FR-VrT" id="7bo-dl-2ue"/>
                     </connections>
                 </pongPressGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="kZV-T0-905">
+                    <connections>
+                        <action selector="upLongPressed:" destination="BV1-FR-VrT" id="A5d-Qq-xe4"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="hQT-9b-fBe">
+                    <connections>
+                        <action selector="downLongPressed:" destination="BV1-FR-VrT" id="g22-kY-phR"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="117.39130434782609"/>
+            <point key="canvasLocation" x="117.39130434782609" y="117.39130434782609"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="down-arrow" width="34" height="50"/>
+        <image name="left-arrow" width="50" height="35"/>
+        <image name="right-arrow" width="50" height="34"/>
+        <image name="up-arrow " width="35" height="50"/>
+    </resources>
 </document>
