@@ -64,8 +64,8 @@ class AircraftView: SCNNode {
             } else {
                 // Reset to the original orientation if nil
                 let action = SCNAction.rotateTo(x: 0, y: 0, z: 0, duration: Constants.kAnimationDurationMoving)
-                self.runAction(action, forKey: DroneView.kRotateToAction)
-                self.wrapperNode.runAction(action, forKey: DroneView.kRotateToAction)
+                self.runAction(action, forKey: Constants.kRotateToAction)
+                self.wrapperNode.runAction(action, forKey: Constants.kRotateToAction)
             }
         }
     }
