@@ -21,7 +21,7 @@ class AircraftView: SCNNode {
         positionChange.signal.observeValues { (pos:SCNVector3?) in
             if let pos = pos {
                 if pos.x == 0 && pos.y == 0 && pos.z == 0 {
-                    // Plane stop completely
+                    // Plane stop completely. Only happens if parked on the ground
                     self.removeAction(forKey: Constants.kForwardAction)
                 } else {
                     let action = SCNAction.moveBy(x: CGFloat(pos.x), y: CGFloat(pos.y), z: CGFloat(pos.z), duration: Constants.kAnimationDurationMoving)
@@ -62,7 +62,7 @@ class AircraftView: SCNNode {
                     }
                 }
             } else {
-                // Reset to the original orientation if nil
+                // Reset to the original orientation if rotation is nil
                 let action = SCNAction.rotateTo(x: 0, y: 0, z: 0, duration: Constants.kAnimationDurationMoving)
                 self.runAction(action, forKey: Constants.kRotateToAction)
                 self.wrapperNode.runAction(action, forKey: Constants.kRotateToAction)
