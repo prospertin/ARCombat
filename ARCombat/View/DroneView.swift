@@ -56,7 +56,7 @@ class DroneView: SCNNode {
         node.runAction(action, forKey: DroneView.kRotateToAction)
     }
     
-    public func incrementalRotate(node: SCNNode, angle: CGFloat, axe: CoordinateAxe) {
+    public func incrementalRotate(angle: CGFloat, axe: CoordinateAxe) {
         let action = SCNAction.rotateBy(x: axe == .xAxe ? angle : 0,
                                         y: axe == .yAxe ? angle : 0,
                                         z: axe == .zAxe ? angle : 0,
@@ -66,7 +66,7 @@ class DroneView: SCNNode {
     }
     
     public func incrementalYawn(angle: CGFloat) {
-        incrementalRotate(node: self, angle: angle, axe: CoordinateAxe.yAxe)
+        incrementalRotate(angle: angle, axe: CoordinateAxe.yAxe)
         rotateTo(node: self.wrapperNode, angle: angle * kYawnRollFactor, axe: CoordinateAxe.zAxe)
     }
     
@@ -75,7 +75,7 @@ class DroneView: SCNNode {
         if axe == CoordinateAxe.yAxe {
             self.incrementalYawn(angle: CGFloat(angle))
         } else {
-            self.incrementalRotate(node: self, angle: CGFloat(angle), axe: axe)
+            self.incrementalRotate(angle: CGFloat(angle), axe: axe)
         }
         //entity?.startPositionChange(positionChange: delta)
         if let _ = self.action(forKey: DroneView.kForwardAction) {
@@ -229,10 +229,10 @@ class DroneView: SCNNode {
         debugPrint("Position x: \(pos.x) y: \(pos.y) z: \(pos.z) r: \(orientation.w)")
     }
 }
-
-enum CoordinateAxe {
-    case none
-    case xAxe
-    case yAxe
-    case zAxe
-}
+//
+//enum CoordinateAxe {
+//    case none
+//    case xAxe
+//    case yAxe
+//    case zAxe
+//}

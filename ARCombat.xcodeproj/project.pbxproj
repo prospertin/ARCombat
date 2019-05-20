@@ -22,6 +22,11 @@
 		B247DE5B1FCE5C0E00E2C4AB /* DroneInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247DE5A1FCE5C0E00E2C4AB /* DroneInteractor.swift */; };
 		B247DE621FCF1D2800E2C4AB /* DroneDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247DE611FCF1D2800E2C4AB /* DroneDataManager.swift */; };
 		B24AADE01FEE41E300BAEB9D /* DroneViewBindingTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24AADDF1FEE41E300BAEB9D /* DroneViewBindingTarget.swift */; };
+		B275A0862290F78700C6E671 /* AircraftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B275A0852290F78700C6E671 /* AircraftViewModel.swift */; };
+		B275A0882290FDFF00C6E671 /* ARSCNViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B275A0872290FDFF00C6E671 /* ARSCNViewController.swift */; };
+		B275A08A2290FE6800C6E671 /* AircraftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B275A0892290FE6800C6E671 /* AircraftView.swift */; };
+		B275A08C2290FEB200C6E671 /* AircraftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B275A08B2290FEB200C6E671 /* AircraftModel.swift */; };
+		B275A08E2291F5C700C6E671 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B275A08D2291F5C700C6E671 /* Constants.swift */; };
 		B2DB25CE1FCBAB4800FBD195 /* DroneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DB25CD1FCBAB4800FBD195 /* DroneViewModel.swift */; };
 		B2DB25D01FCBACF200FBD195 /* DroneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DB25CF1FCBACF200FBD195 /* DroneView.swift */; };
 		B2E725AD1FEAB8620034ED98 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E725AC1FEAB8620034ED98 /* Test.swift */; };
@@ -69,6 +74,11 @@
 		B247DE5A1FCE5C0E00E2C4AB /* DroneInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneInteractor.swift; sourceTree = "<group>"; };
 		B247DE611FCF1D2800E2C4AB /* DroneDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneDataManager.swift; sourceTree = "<group>"; };
 		B24AADDF1FEE41E300BAEB9D /* DroneViewBindingTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneViewBindingTarget.swift; sourceTree = "<group>"; };
+		B275A0852290F78700C6E671 /* AircraftViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftViewModel.swift; sourceTree = "<group>"; };
+		B275A0872290FDFF00C6E671 /* ARSCNViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSCNViewController.swift; sourceTree = "<group>"; };
+		B275A0892290FE6800C6E671 /* AircraftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftView.swift; sourceTree = "<group>"; };
+		B275A08B2290FEB200C6E671 /* AircraftModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftModel.swift; sourceTree = "<group>"; };
+		B275A08D2291F5C700C6E671 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B2DB25CD1FCBAB4800FBD195 /* DroneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneViewModel.swift; sourceTree = "<group>"; };
 		B2DB25CF1FCBACF200FBD195 /* DroneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneView.swift; sourceTree = "<group>"; };
 		B2E725AC1FEAB8620034ED98 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
@@ -143,6 +153,9 @@
 		B2229C9C1FA93925000823C3 /* ARCombat */ = {
 			isa = PBXGroup;
 			children = (
+				B275A0872290FDFF00C6E671 /* ARSCNViewController.swift */,
+				B275A08D2291F5C700C6E671 /* Constants.swift */,
+				B275A0842290F74E00C6E671 /* Aircraft */,
 				B247DE541FCE56C300E2C4AB /* DroneProtocols.swift */,
 				B247DE5C1FCE5CD800E2C4AB /* View */,
 				B247DE5E1FCE5D0600E2C4AB /* Presenter */,
@@ -220,6 +233,16 @@
 				B247DE581FCE5BD700E2C4AB /* DroneRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		B275A0842290F74E00C6E671 /* Aircraft */ = {
+			isa = PBXGroup;
+			children = (
+				B275A0852290F78700C6E671 /* AircraftViewModel.swift */,
+				B275A0892290FE6800C6E671 /* AircraftView.swift */,
+				B275A08B2290FEB200C6E671 /* AircraftModel.swift */,
+			);
+			path = Aircraft;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -403,15 +426,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				B247DE551FCE56C300E2C4AB /* DroneProtocols.swift in Sources */,
+				B275A08E2291F5C700C6E671 /* Constants.swift in Sources */,
 				B2229CA21FA93925000823C3 /* DroneViewController.swift in Sources */,
 				B247DE531FCE567400E2C4AB /* DronePresenter.swift in Sources */,
+				B275A08A2290FE6800C6E671 /* AircraftView.swift in Sources */,
 				B247DE571FCE5B9E00E2C4AB /* DroneEntity.swift in Sources */,
 				B247DE5B1FCE5C0E00E2C4AB /* DroneInteractor.swift in Sources */,
 				B2E725AD1FEAB8620034ED98 /* Test.swift in Sources */,
 				B2229C9E1FA93925000823C3 /* AppDelegate.swift in Sources */,
+				B275A0882290FDFF00C6E671 /* ARSCNViewController.swift in Sources */,
 				B24AADE01FEE41E300BAEB9D /* DroneViewBindingTarget.swift in Sources */,
 				B247DE621FCF1D2800E2C4AB /* DroneDataManager.swift in Sources */,
+				B275A08C2290FEB200C6E671 /* AircraftModel.swift in Sources */,
 				B247DE591FCE5BD700E2C4AB /* DroneRouter.swift in Sources */,
+				B275A0862290F78700C6E671 /* AircraftViewModel.swift in Sources */,
 				B2DB25CE1FCBAB4800FBD195 /* DroneViewModel.swift in Sources */,
 				B2DB25D01FCBACF200FBD195 /* DroneView.swift in Sources */,
 			);

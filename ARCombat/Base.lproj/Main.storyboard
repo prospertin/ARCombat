@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Drone View Controller-->
+        <!--View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController storyboardIdentifier="DroneViewController" id="BV1-FR-VrT" customClass="DroneViewController" customModule="ARCombat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DroneViewController" id="BV1-FR-VrT" customClass="ARSCNViewController" customModule="ARCombat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BlQ-Aa-hKX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -26,34 +27,34 @@
                                 <gestureRecognizers/>
                                 <state key="normal" backgroundImage="left-arrow"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="4aU-Jv-i3V" appends="YES" id="R9O-SV-xVD"/>
+                                    <outletCollection property="gestureRecognizers" destination="4aU-Jv-i3V" appends="YES" id="grH-yz-yMY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gz-8z-lPp">
                                 <rect key="frame" x="344" y="672" width="50" height="34"/>
                                 <state key="normal" backgroundImage="right-arrow"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="S00-9F-V7A" appends="YES" id="Chf-ml-hYu"/>
+                                    <outletCollection property="gestureRecognizers" destination="S00-9F-V7A" appends="YES" id="S84-d7-mDn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nl7-Z0-u2Y">
                                 <rect key="frame" x="100" y="666" width="35" height="50"/>
                                 <state key="normal" backgroundImage="up-arrow "/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="kZV-T0-905" appends="YES" id="pQ1-zo-HhJ"/>
+                                    <outletCollection property="gestureRecognizers" destination="kZV-T0-905" appends="YES" id="MFV-Ep-aoo"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jPV-X1-siL">
                                 <rect key="frame" x="290" y="661" width="34" height="50"/>
                                 <state key="normal" backgroundImage="down-arrow"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="hQT-9b-fBe" appends="YES" id="AIh-RT-WXu"/>
+                                    <outletCollection property="gestureRecognizers" destination="hQT-9b-fBe" appends="YES" id="fOP-hm-Fgp"/>
                                 </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ipy-ZT-bvf">
                                 <rect key="frame" x="182.66666666666666" y="675" width="51" height="31"/>
                                 <connections>
-                                    <action selector="switchToggle:" destination="BV1-FR-VrT" eventType="valueChanged" id="EuM-2I-AVx"/>
+                                    <action selector="switchToggle:" destination="BV1-FR-VrT" eventType="valueChanged" id="nxy-Ee-oEg"/>
                                 </connections>
                             </switch>
                         </subviews>
@@ -85,22 +86,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="4aU-Jv-i3V">
                     <connections>
-                        <action selector="moveLeftLongPressed:" destination="BV1-FR-VrT" id="wd2-kj-yWk"/>
+                        <action selector="moveLeftLongPressed:" destination="BV1-FR-VrT" id="Fvc-dr-SqX"/>
                     </connections>
                 </pongPressGestureRecognizer>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="S00-9F-V7A">
                     <connections>
-                        <action selector="moveRightLongPressed:" destination="BV1-FR-VrT" id="7bo-dl-2ue"/>
+                        <action selector="moveRightLongPressed:" destination="BV1-FR-VrT" id="TG7-nS-hNM"/>
                     </connections>
                 </pongPressGestureRecognizer>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="kZV-T0-905">
                     <connections>
-                        <action selector="upLongPressed:" destination="BV1-FR-VrT" id="A5d-Qq-xe4"/>
+                        <action selector="upLongPressed:" destination="BV1-FR-VrT" id="1cb-Ov-E9J"/>
                     </connections>
                 </pongPressGestureRecognizer>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="hQT-9b-fBe">
                     <connections>
-                        <action selector="downLongPressed:" destination="BV1-FR-VrT" id="g22-kY-phR"/>
+                        <action selector="downLongPressed:" destination="BV1-FR-VrT" id="EsW-PO-GEm"/>
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>

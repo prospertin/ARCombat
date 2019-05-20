@@ -29,7 +29,7 @@ class DroneViewBindingTarget: BindingTargetProvider {
                         if d.axe == CoordinateAxe.yAxe {
                             view.incrementalYawn(angle: CGFloat(d.rotation))
                         } else {
-                            view.incrementalRotate(node: view, angle: CGFloat(d.rotation), axe: d.axe)
+                            view.incrementalRotate(angle: CGFloat(d.rotation), axe: d.axe)
                         }
                     } else {
                         view.removeAction(forKey: DroneView.kIncrementalRotationAction)
