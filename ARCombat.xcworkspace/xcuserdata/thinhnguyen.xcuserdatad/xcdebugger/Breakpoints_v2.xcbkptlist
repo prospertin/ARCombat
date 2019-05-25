@@ -97,68 +97,6 @@
             endingLineNumber = "150"
             landmarkName = "deltaZ(angleY:angleX:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ARCombat.DroneView.(deltaZ in _76E21AF731E2F27C6D8E31B66898CFEE)(angleY: Swift.Float, angleX: Swift.Float) -&gt; Swift.Float"
-                  moduleName = "ARCombat"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/thinhnguyen/Work/AR/ARCombat/ARCombat/View/DroneView.swift"
-                  timestampString = "580011127.911826"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "150"
-                  endingLineNumber = "150"
-                  offsetFromSymbolStart = "1607">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ARCombat.DroneView.(deltaZ in _76E21AF731E2F27C6D8E31B66898CFEE)(angleY: Swift.Float, angleX: Swift.Float) -&gt; Swift.Float"
-                  moduleName = "ARCombat"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/thinhnguyen/Work/AR/ARCombat/ARCombat/View/DroneView.swift"
-                  timestampString = "580011127.913792"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "150"
-                  endingLineNumber = "150"
-                  offsetFromSymbolStart = "1953">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ARCombat.DroneView.(deltaZ in _76E21AF731E2F27C6D8E31B66898CFEE)(angleY: Swift.Float, angleX: Swift.Float) -&gt; Swift.Float"
-                  moduleName = "ARCombat"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/thinhnguyen/Work/AR/ARCombat/ARCombat/View/DroneView.swift"
-                  timestampString = "580011127.915759"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "150"
-                  endingLineNumber = "150"
-                  offsetFromSymbolStart = "2358">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ARCombat.DroneView.(deltaZ in _76E21AF731E2F27C6D8E31B66898CFEE)(angleY: Swift.Float, angleX: Swift.Float) -&gt; Swift.Float"
-                  moduleName = "ARCombat"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/thinhnguyen/Work/AR/ARCombat/ARCombat/View/DroneView.swift"
-                  timestampString = "580011127.917619"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "150"
-                  endingLineNumber = "150"
-                  offsetFromSymbolStart = "2704">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -264,7 +202,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ARCombat/Aircraft/AircraftView.swift"
-            timestampString = "580055805.530391"
+            timestampString = "580230939.837857"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "58"
@@ -280,12 +218,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ARCombat/Aircraft/AircraftView.swift"
-            timestampString = "580055805.530484"
+            timestampString = "580230939.838027"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
             endingLineNumber = "54"
             landmarkName = "init(positionChange:rotation:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ARCombat/ARSCNViewController.swift"
+            timestampString = "580451209.907847"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "setupARSCNView()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ARCombat/ARSCNViewController.swift"
+            timestampString = "580451209.908314"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ARCombat/ARSCNViewController.swift"
+            timestampString = "580451209.908649"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "addAircraft()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ARCombat/Aircraft/AircraftViewModel.swift"
+            timestampString = "580451209.908985"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "getAircraftView(name:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

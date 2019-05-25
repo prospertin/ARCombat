@@ -12,12 +12,22 @@ import ARKit
 
 class ARSCNViewController: UIViewController, ARSCNViewDelegate {
 
+    let arscnView = ARSCNView()
+    lazy var skView: SKView = {
+        let view = SKView()
+        view.isMultipleTouchEnabled = true
+        view.backgroundColor = .clear
+        view.isHidden = true
+        return view
+    }()
     
     let aircraftViewModel = AircraftViewModel()
     var aircraftView:AircraftView?
     var timer:Timer?
     
-    @IBOutlet var sceneView: ARSCNView!
+    @IBOutlet weak var joystick: UIView!
+    
+  //  @IBOutlet var sceneView: ARSCNView!
     
     @IBAction func switchToggle(_ sender: UISwitch) {
         if sender.isOn {
@@ -49,41 +59,57 @@ class ARSCNViewController: UIViewController, ARSCNViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupARSCNView()
+       // setupSKView()
+    }
+
+    func setupARSCNView() {
+        // Create a new scene and set the scene to the view
+        arscnView.scene = SCNScene()
         // Set the view's delegate
-        sceneView.delegate = self
+        arscnView.delegate = self
         // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
-        setupScene()
+        arscnView.showsStatistics = true
+        arscnView.autoenablesDefaultLighting = true
+        arscnView.setContraintsToFillSuperview()
+        // Add arscnView to main view
+        view.addSubview(arscnView)
+        arscnView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
     }
 
-    func setupScene() {
-        // Create a new scene
-        let scene = SCNScene()
-        
-        // Set the scene to the view
-        sceneView.scene = scene//
-        // sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
-        sceneView.autoenablesDefaultLighting = true
+    func setupSKView() {
+        view.addSubview(skView)
+//        skView.anchor(nil, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 180)
     }
-
+    
+    func setupSKViewScene() {
+        let scene = ARJoystickSKScene(size: CGSize(width: view.bounds.size.width, height: 180))
+        scene.scaleMode = .resizeFill
+        skView.presentScene(scene)
+        skView.ignoresSiblingOrder = true
+        //    skView.showsFPS = true
+        //    skView.showsNodeCount = true
+        //    skView.showsPhysics = true
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let configuration = ARWorldTrackingConfiguration()
-        sceneView.session.run(configuration)
-        addAircraft()
+        arscnView.session.run(configuration)
+      //  addAircraft()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         // Pause the view's session
-        sceneView.session.pause()
+        arscnView.session.pause()
     }
     
     // MARK: Private
     private func addAircraft() {
         if let view = aircraftViewModel.getAircraftView(name: "myAircraft") {
-            sceneView.scene.rootNode.addChildNode(view)
+            arscnView.scene.rootNode.addChildNode(view)
             self.aircraftView = view
         }
     }

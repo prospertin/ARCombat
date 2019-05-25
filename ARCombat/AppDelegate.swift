@@ -12,9 +12,14 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        //window?.isHidden = false
+        window?.rootViewController = ARSCNViewController()
+        window?.makeKeyAndVisible() // show the window as the key window
+        
+        UIApplication.shared.isIdleTimerDisabled = true // So it stays awake
         return true
     }
 

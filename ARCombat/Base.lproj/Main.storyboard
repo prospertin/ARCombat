@@ -57,15 +57,26 @@
                                     <action selector="switchToggle:" destination="BV1-FR-VrT" eventType="valueChanged" id="nxy-Ee-oEg"/>
                                 </connections>
                             </switch>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2tT-a7-P4l" userLabel="JoyStickView">
+                                <rect key="frame" x="182" y="575" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.97680455450000003" green="0.10584376" blue="0.1549546788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.97680455450000003" green="0.10584376" blue="0.1549546788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="EvT-5j-ZxB"/>
+                                    <constraint firstAttribute="width" constant="50" id="V0w-w3-ja6"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9gz-8z-lPp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BlQ-Aa-hKX" secondAttribute="leading" constant="20" symbolic="YES" id="AY5-9a-lfj"/>
                             <constraint firstItem="mAF-5s-yIM" firstAttribute="top" secondItem="UaX-3j-0Ob" secondAttribute="top" id="Avx-lo-2Qq"/>
+                            <constraint firstItem="2tT-a7-P4l" firstAttribute="centerX" secondItem="BlQ-Aa-hKX" secondAttribute="centerX" id="C5f-On-LE2"/>
                             <constraint firstItem="mAF-5s-yIM" firstAttribute="leading" secondItem="UaX-3j-0Ob" secondAttribute="leading" id="EfG-3M-SYq"/>
                             <constraint firstItem="UaX-3j-0Ob" firstAttribute="bottom" secondItem="jPV-X1-siL" secondAttribute="bottom" constant="25" id="G5X-rI-YuT"/>
                             <constraint firstItem="UaX-3j-0Ob" firstAttribute="bottom" secondItem="mAF-5s-yIM" secondAttribute="bottom" id="GG2-8K-7jb"/>
                             <constraint firstItem="UaX-3j-0Ob" firstAttribute="bottom" secondItem="ipy-ZT-bvf" secondAttribute="bottom" constant="30" id="HHs-CJ-asj"/>
+                            <constraint firstItem="ipy-ZT-bvf" firstAttribute="top" secondItem="2tT-a7-P4l" secondAttribute="bottom" constant="50" id="XoA-5R-6d1"/>
                             <constraint firstItem="UaX-3j-0Ob" firstAttribute="trailing" secondItem="mAF-5s-yIM" secondAttribute="trailing" id="Z8R-E0-XYq"/>
                             <constraint firstItem="nl7-Z0-u2Y" firstAttribute="leading" secondItem="0lO-XB-jzD" secondAttribute="trailing" constant="20" id="ZoA-HK-cj7"/>
                             <constraint firstItem="9gz-8z-lPp" firstAttribute="leading" secondItem="jPV-X1-siL" secondAttribute="trailing" constant="20" id="acg-au-jdF"/>
@@ -80,7 +91,8 @@
                         <viewLayoutGuide key="safeArea" id="UaX-3j-0Ob"/>
                     </view>
                     <connections>
-                        <outlet property="sceneView" destination="mAF-5s-yIM" id="n4V-u7-Nr4"/>
+                        <outlet property="arscnView" destination="mAF-5s-yIM" id="n4V-u7-Nr4"/>
+                        <outlet property="joystick" destination="2tT-a7-P4l" id="S3R-Im-pw6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
