@@ -13,7 +13,7 @@ import ReactiveSwift
 class AircraftView: SCNNode {
     var wrapperNode:SCNNode!
     
-    init(positionChange: MutableProperty<SCNVector3?>, rotation: MutableProperty<SCNVector4?>) {
+    init(positionChange: MutableProperty<SCNVector3?>, rotation: MutableProperty<SCNVector3?>) {
         super.init()
         wrapperNode = SCNNode()
         addChildNode(wrapperNode)
@@ -35,7 +35,7 @@ class AircraftView: SCNNode {
             }
         }
         
-        rotation.signal.observeValues { (viewRotation:SCNVector4?)in
+        rotation.signal.observeValues { (viewRotation:SCNVector3?)in
             if let rot = viewRotation {
                 if rot.x == 0 && rot.y == 0 && rot.z == 0 {
                     // Stop current rotation
@@ -47,12 +47,9 @@ class AircraftView: SCNNode {
                     self.wrapperNode.runAction(roll, forKey: Constants.kRotateToAction)
                     
                 } else {
-                    let action = SCNAction.rotateBy(x: CGFloat(rot.x),
-                                                    y: CGFloat(rot.y),
-                                                    z: CGFloat(rot.z),
-                                                    duration: TimeInterval(rot.w))
-                    let loopAction = SCNAction.repeatForever(action)
-                    self.runAction(loopAction, forKey: Constants.kIncrementalRotationAction)
+                    self.eulerAngles.x += rot.x
+                    self.eulerAngles.y += rot.y
+                    self.eulerAngles.z += rot.z
                     //Hack for now: create auto roll if yaw. Remove when implement separate yaw and roll
                     if rot.y != 0 {
                         let roll = SCNAction.rotateTo(x: 0, y: 0, z: CGFloat(rot.y) * Constants.kYawnRollFactor,

@@ -13,81 +13,71 @@ import ARKit
 class ARSCNViewController: UIViewController, ARSCNViewDelegate {
 
     let arscnView = ARSCNView()
+    
     lazy var skView: SKView = {
         let view = SKView()
         view.isMultipleTouchEnabled = true
         view.backgroundColor = .clear
-        view.isHidden = true
+        view.isHidden = false
         return view
     }()
     
-    let aircraftViewModel = AircraftViewModel()
+    let mainViewModel = ARCombatViewModel()
+    
     var aircraftView:AircraftView?
-    var timer:Timer?
-    
-    @IBOutlet weak var joystick: UIView!
-    
-  //  @IBOutlet var sceneView: ARSCNView!
-    
-    @IBAction func switchToggle(_ sender: UISwitch) {
-        if sender.isOn {
-            moveForward()
-        } else {
-            // ONLY USE TO PAUSE. Plane can not stop in mid air: aircraftViewModel.stopMovingForward(position: view.worldPosition, orientation: view.worldOrientation)
-            aircraftViewModel.resetPosition()
-        }
-    }
+ 
+//    @IBAction func switchToggle(_ sender: UISwitch) {
+//        if sender.isOn {
+//            mainViewModel.aircraftMoveForward(eulerAngles: aircraftView!.eulerAngles)
+//        } else {
+//            // ONLY USE TO PAUSE. Plane can not stop in mid air: aircraftViewModel.stopMovingForward(position: view.worldPosition, orientation: view.worldOrientation)
+//            mainViewModel.resetAircraftPosition()
+//        }
+//    }
     // MARK: - actions
-    @IBAction func upLongPressed(_ sender: UILongPressGestureRecognizer) {
-        executeRotation(r: Constants.kRotationRadianPerLoop, axe: CoordinateAxe.xAxe, sender: sender)
-    }
-    
-    @IBAction func downLongPressed(_ sender: UILongPressGestureRecognizer) {
-        executeRotation(r: -Constants.kRotationRadianPerLoop, axe: CoordinateAxe.xAxe, sender: sender)
-    }
-    
-    @IBAction func moveLeftLongPressed(_ sender: UILongPressGestureRecognizer) {
-       executeRotation(r: Constants.kRotationRadianPerLoop, axe: CoordinateAxe.yAxe, sender: sender)
-       
-    }
-    
-    @IBAction func moveRightLongPressed(_ sender: UILongPressGestureRecognizer) {
-        executeRotation(r: -Constants.kRotationRadianPerLoop, axe: CoordinateAxe.yAxe, sender: sender)
-       
-    }
     // MARK: Routine Initializers
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupARSCNView()
-       // setupSKView()
+        setupSKView()
+        setupSKViewScene()
     }
 
     func setupARSCNView() {
         // Create a new scene and set the scene to the view
         arscnView.scene = SCNScene()
+        // Add arscnView to main view
+        view.addSubview(arscnView)
+        arscnView.setContraintsToFillSuperview()
         // Set the view's delegate
         arscnView.delegate = self
         // Show statistics such as fps and timing information
         arscnView.showsStatistics = true
         arscnView.autoenablesDefaultLighting = true
-        arscnView.setContraintsToFillSuperview()
-        // Add arscnView to main view
-        view.addSubview(arscnView)
-        arscnView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
+        
+     //   arscnView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
     }
-
+    //Setup the SK view that contains the SK joystick ViewScene
     func setupSKView() {
         view.addSubview(skView)
-//        skView.anchor(nil, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 180)
+        skView.setConstraints(nil,
+                              left: view.leftAnchor,
+                              bottom: view.bottomAnchor,
+                              right: view.rightAnchor,
+                              topConstant: 0,
+                              leftConstant: 0,
+                              bottomConstant: 0,
+                              rightConstant: 0,
+                              widthConstant: 0,
+                              heightConstant: 180)
     }
-    
+    //Add the joystick viewScene to the skview
     func setupSKViewScene() {
-        let scene = ARJoystickSKScene(size: CGSize(width: view.bounds.size.width, height: 180))
-        scene.scaleMode = .resizeFill
+        let scene = mainViewModel.getJoystickView(width: view.bounds.size.width, height: 180)
         skView.presentScene(scene)
         skView.ignoresSiblingOrder = true
-        //    skView.showsFPS = true
+        // skView.showsFPS = true
         //    skView.showsNodeCount = true
         //    skView.showsPhysics = true
     }
@@ -96,7 +86,7 @@ class ARSCNViewController: UIViewController, ARSCNViewDelegate {
         super.viewWillAppear(animated)
         let configuration = ARWorldTrackingConfiguration()
         arscnView.session.run(configuration)
-      //  addAircraft()
+        addAircraft()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -108,36 +98,9 @@ class ARSCNViewController: UIViewController, ARSCNViewDelegate {
     
     // MARK: Private
     private func addAircraft() {
-        if let view = aircraftViewModel.getAircraftView(name: "myAircraft") {
+        if let view = mainViewModel.getAircraftView(name: "myAircraft") {
             arscnView.scene.rootNode.addChildNode(view)
             self.aircraftView = view
         }
     }
-    
-    @objc private func moveForward() {
-        if let view = aircraftView {
-            aircraftViewModel.moveForward(eulerAngles: view.eulerAngles)
-        }
-    }
-    
-    private func executeRotation(r: CGFloat, axe: CoordinateAxe, sender: UILongPressGestureRecognizer) {
-        
-        guard let view = aircraftView else {
-            return
-        }
-        if sender.state == .ended {
-            aircraftViewModel.stopRotate(axe: axe)
-            if let tm = timer {
-                aircraftViewModel.moveForward(eulerAngles: view.eulerAngles)
-                tm.invalidate()
-                timer = nil
-            }
-        } else if sender.state == .began {
-            aircraftViewModel.beginRotate(angle: r, axe: axe)
-            timer = Timer.scheduledTimer(timeInterval: Constants.kAnimationDurationMoving, target: self,
-                                         selector: #selector(moveForward),
-                                         userInfo: nil, repeats: true)
-        }
-    }
-
 }

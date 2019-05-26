@@ -7,16 +7,30 @@
 //
 
 import SpriteKit
+import ReactiveSwift
 
 public class ARJoystickSKScene: SKScene {
-    enum NodesZPosition {
+    enum NodesZPosition: CGFloat {
         case joystick
     }
     
     lazy var analogJoystick: AnalogJoystick = {
-        let joystick = AnalogJoystick(diameter: 100, colors: nil, images: (substrate: #imageLiteral(resourceName: "joystickbase"), stick: #imageLiteral(resourceName:"joystick")))
-        return joystick
+        let js = AnalogJoystick(diameter: 100, colors: nil, images: (substrate: #imageLiteral(resourceName: "joystickbase"), stick: #imageLiteral(resourceName:"joystick")))
+        js.position = CGPoint(x: js.radius + 45, y: js.radius - 25)
+//        js.zPosition = NodesZPosition.joystick.rawValue
+        return js
     }()
+    
+    var outputData:MutableProperty<JoystickModel?>!
+    
+    init(size: CGSize, data:MutableProperty<JoystickModel?>) {
+        super.init(size: size)
+        outputData = data
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     override public func didMove(to view: SKView) {
         self.backgroundColor = .clear
@@ -25,14 +39,18 @@ public class ARJoystickSKScene: SKScene {
     }
     
     func setupNodes() {
-        anchorPoint = CGPoint(x: 0.0, y: 0.0)
+        anchorPoint = CGPoint(x: 0.5, y: 0.5) // Origin is center of the container view
     }
     
     func setupJoystick() {
         addChild(analogJoystick)
         
         analogJoystick.trackingHandler = { [unowned self] data in
-            //      NotificationCenter.default.post(name: joystickNotificationName, object: nil, userInfo: ["data": data])
+            self.outputData.value = data
+        }
+        
+        analogJoystick.stopHandler = {
+            self.outputData.value = nil
         }
         
     }

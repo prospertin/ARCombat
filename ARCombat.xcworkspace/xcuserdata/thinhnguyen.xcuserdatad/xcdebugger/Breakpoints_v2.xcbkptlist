@@ -202,27 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ARCombat/Aircraft/AircraftView.swift"
-            timestampString = "580230939.837857"
+            timestampString = "580582761.099707"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "init(positionChange:rotation:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ARCombat/Aircraft/AircraftView.swift"
-            timestampString = "580230939.838027"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "init(positionChange:rotation:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -234,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ARCombat/ARSCNViewController.swift"
-            timestampString = "580451209.907847"
+            timestampString = "580582761.09981"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "setupARSCNView()"
             landmarkType = "7">
          </BreakpointContent>
@@ -249,13 +233,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ARCombat/ARSCNViewController.swift"
-            timestampString = "580451209.908314"
+            filePath = "ARCombat/Aircraft/AircraftViewModel.swift"
+            timestampString = "580582761.100444"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "viewWillAppear(_:)"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "getAircraftView(name:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -265,13 +249,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ARCombat/ARSCNViewController.swift"
-            timestampString = "580451209.908649"
+            filePath = "ARCombat/Joystick/AnalogJoystick.swift"
+            timestampString = "580582761.1005861"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "addAircraft()"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
+            landmarkName = "touchesBegan(_:with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -282,12 +266,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ARCombat/Aircraft/AircraftViewModel.swift"
-            timestampString = "580451209.908985"
+            timestampString = "580582761.100669"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "getAircraftView(name:)"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "beginRotate(rotation:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

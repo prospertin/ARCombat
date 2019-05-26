@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import ARKit
+
 class Constants {
     static let kIncrementalRotationAction: String = "incrementalRotate"
     static let kForwardAction: String = "forward"
@@ -21,7 +22,9 @@ class Constants {
     static let kAnimationDurationMoving: TimeInterval = 0.2
     static let kAnimationDurationYawn: TimeInterval = 2.0
     static let kYawnRollFactor: CGFloat = 10
+    static let kRotationFactor: Float = 0.0002
     static let aircraftStartPosition = SCNVector3(x: 0, y: 0, z: -5)
+    static let joystickVelocityMultiplier: CGFloat = 0.00005
 }
 
 enum CoordinateAxe {
