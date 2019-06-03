@@ -35,34 +35,23 @@ class AircraftView: SCNNode {
             }
         }
         
-        rotation.signal.observeValues { (viewRotation:SCNVector3?)in
-            if let rot = viewRotation {
+        rotation.signal.observeValues { (deltaRotation:SCNVector3?)in
+            if let rot = deltaRotation {
                 if rot.x == 0 && rot.y == 0 && rot.z == 0 {
                     // Stop current rotation
-                    self.removeAction(forKey: Constants.kIncrementalRotationAction)
-                    //Hack for now: create auto roll if yaw. Remove when implement separate yaw and roll
-                    let roll = SCNAction.rotateTo(x: 0, y: 0, z: CGFloat(0),
-                                                  duration: Constants.kAnimationDurationYawn)
-                    // NOTE Make the wrapper node roll NOT 'self' node
-                    self.wrapperNode.runAction(roll, forKey: Constants.kRotateToAction)
-                    
                 } else {
+                    debugPrint("Rotating: \(self.eulerAngles) in main thread \(Thread.isMainThread)")
                     self.eulerAngles.x += rot.x
                     self.eulerAngles.y += rot.y
                     self.eulerAngles.z += rot.z
-                    //Hack for now: create auto roll if yaw. Remove when implement separate yaw and roll
-                    if rot.y != 0 {
-                        let roll = SCNAction.rotateTo(x: 0, y: 0, z: CGFloat(rot.y) * Constants.kYawnRollFactor,
-                                                      duration: Constants.kAnimationDurationYawn)
-                        // NOTE Make the wrapper node roll NOT 'self' node
-                        self.wrapperNode.runAction(roll, forKey: Constants.kRotateToAction)
-                    }
+                    //self.wrapperNode.eulerAngles.z += rot.z // Rotate the wrapper so the yaw is parallel to the earth
                 }
             } else {
                 // Reset to the original orientation if rotation is nil
-                let action = SCNAction.rotateTo(x: 0, y: 0, z: 0, duration: Constants.kAnimationDurationMoving)
-                self.runAction(action, forKey: Constants.kRotateToAction)
-                self.wrapperNode.runAction(action, forKey: Constants.kRotateToAction)
+                self.eulerAngles.x = 0
+                self.eulerAngles.y = 0
+                self.eulerAngles.z = 0
+                //self.wrapperNode.eulerAngles.z = 0
             }
         }
     }

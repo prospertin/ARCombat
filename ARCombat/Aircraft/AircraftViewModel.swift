@@ -6,7 +6,6 @@
 //  Copyright © 2019 Prospertin. All rights reserved.
 //
 
-import UIKit
 import ARKit
 import ReactiveSwift
 
@@ -38,7 +37,8 @@ class AircraftViewModel: NSObject {
         let eulerAngles = model.eulers
         let x = deltaX(angleY: eulerAngles.y, angleX: eulerAngles.x)
         let z = deltaZ(angleY: eulerAngles.y, angleX: eulerAngles.x)
-        let y = deltaY(angleY: eulerAngles.y, angleX: eulerAngles.x) 
+        let y = deltaY(angleY: eulerAngles.y, angleX: eulerAngles.x)
+        //debugPrint("---> Move Forward \(Thread.isMainThread) x: \(x) y: \(y) z: \(z)");
         // This trigger view update
         positionChange.value = SCNVector3(x: x, y: y, z: z)
     }
@@ -52,30 +52,14 @@ class AircraftViewModel: NSObject {
     @objc func resetPosition() {
         positionChange.value = nil
         rotation.value = nil
+        model.eulers = SCNVector3Zero
     }
-
-//    public func beginRotate(angle: CGFloat, axe: CoordinateAxe) {
-//        switch axe {
-//        case .xAxe:
-//            rotation.value = SCNVector4(x: Float(angle), y: 0, z: 0, w: Float(Constants.kAnimationDurationMoving))
-//        case .yAxe:
-//            rotation.value = SCNVector4(x: 0, y: Float(angle), z: 0, w: Float(Constants.kAnimationDurationMoving))
-//        case .zAxe:
-//            rotation.value = SCNVector4(x: 0, y: 0, z: Float(angle), w: Float(Constants.kAnimationDurationMoving))
-//        case .none:
-//            rotation.value = nil // Cancel rotation
-//        }
-//    }
     
-    public func beginRotate(rotation: SCNVector3) {
+    public func rotate(rotation: SCNVector3) {
         self.rotation.value = rotation
         model.updateOrientation(eulers: rotation)
     }
-    
-    public func stopRotate() {
-        rotation.value = SCNVector3Zero // Cancel rotation
-    }
-    
+
     private func deltaX(angleY: Float, angleX: Float) -> Float {
         // On X-Z plane rotate around Y (start from -Z axis)
         let deplacement = abs(Constants.kMovingLengthPerLoop * sin(angleY))

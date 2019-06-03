@@ -13,6 +13,8 @@ import ARKit
 class ARSCNViewController: UIViewController, ARSCNViewDelegate {
 
     let arscnView = ARSCNView()
+    let startButtonOnLabel = "Start"
+    let startButtonOffLabel = "Stop"
     
     lazy var skView: SKView = {
         let view = SKView()
@@ -22,18 +24,20 @@ class ARSCNViewController: UIViewController, ARSCNViewDelegate {
         return view
     }()
     
-    let mainViewModel = ARCombatViewModel()
+    let startButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .gray
+        button.addTarget(self, action: #selector(startStopGame), for: .touchUpInside)
+        return button
+    }()
     
+    let mainViewModel = ARCombatViewModel()
     var aircraftView:AircraftView?
- 
-//    @IBAction func switchToggle(_ sender: UISwitch) {
-//        if sender.isOn {
-//            mainViewModel.aircraftMoveForward(eulerAngles: aircraftView!.eulerAngles)
-//        } else {
-//            // ONLY USE TO PAUSE. Plane can not stop in mid air: aircraftViewModel.stopMovingForward(position: view.worldPosition, orientation: view.worldOrientation)
-//            mainViewModel.resetAircraftPosition()
-//        }
-//    }
+    var joytickView:AircraftControllerSKScene?
+    
+    //let yawSlider = YawSlidecoderme: .zero)
+    
     // MARK: - actions
     // MARK: Routine Initializers
     
@@ -42,6 +46,8 @@ class ARSCNViewController: UIViewController, ARSCNViewDelegate {
         setupARSCNView()
         setupSKView()
         setupSKViewScene()
+     //   setupYawSliderView()
+        setupStartButton()
     }
 
     func setupARSCNView() {
@@ -55,7 +61,6 @@ class ARSCNViewController: UIViewController, ARSCNViewDelegate {
         // Show statistics such as fps and timing information
         arscnView.showsStatistics = true
         arscnView.autoenablesDefaultLighting = true
-        
      //   arscnView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
     }
     //Setup the SK view that contains the SK joystick ViewScene
@@ -77,9 +82,41 @@ class ARSCNViewController: UIViewController, ARSCNViewDelegate {
         let scene = mainViewModel.getJoystickView(width: view.bounds.size.width, height: 180)
         skView.presentScene(scene)
         skView.ignoresSiblingOrder = true
+        joytickView = scene
+        joytickView?.aircraftController.isUserInteractionEnabled = false
         // skView.showsFPS = true
         //    skView.showsNodeCount = true
         //    skView.showsPhysics = true
+    }
+    
+    func setupStartButton() {
+        view.addSubview(startButton)
+        startButton.setTitle(startButtonOnLabel, for: .normal)
+        startButton.setConstraints(nil,
+                                   left: nil,
+                                   bottom: view.bottomAnchor,
+                                   right: nil,
+                                   topConstant: 0,
+                                   leftConstant: 0,
+                                   bottomConstant: 20,
+                                   rightConstant: 0,
+                                   widthConstant: 80,
+                                   heightConstant: 30)
+        startButton.anchorCenterXToSuperview()
+    }
+    
+    @objc func startStopGame() {
+        if startButton.currentTitle == startButtonOnLabel {
+            joytickView?.aircraftController.isUserInteractionEnabled = true
+            mainViewModel.aircraftRotate(rotation: self.aircraftView!.eulerAngles) // Initialize to original orientation
+            mainViewModel.aircraftViewModel.moveForward() // aircraftMoveForward()
+            startButton.setTitle(startButtonOffLabel, for: .normal)
+        } else {
+            joytickView?.aircraftController.reset() //Reset the command first before resetting the position else, it still forwards
+            joytickView?.aircraftController.isUserInteractionEnabled = false
+            mainViewModel.resetAircraftPosition()
+            startButton.setTitle(startButtonOnLabel, for: .normal)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -95,7 +132,7 @@ class ARSCNViewController: UIViewController, ARSCNViewDelegate {
         // Pause the view's session
         arscnView.session.pause()
     }
-    
+
     // MARK: Private
     private func addAircraft() {
         if let view = mainViewModel.getAircraftView(name: "myAircraft") {

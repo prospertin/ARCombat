@@ -8,10 +8,16 @@
 
 import Foundation
 import UIKit
+import ARKit
 
 extension FloatingPoint {
     var degreesToRadians: Self { return self * .pi / 180 }
     var radiansToDegrees: Self { return self * 180 / .pi }
+}
+extension SCNVector3 {
+    public func equals(_ other: SCNVector3) -> Bool {
+        return self.x == other.x && self.y == other.y && self.z == other.z
+    }
 }
 
 extension UIView {

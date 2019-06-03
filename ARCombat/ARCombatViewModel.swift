@@ -11,9 +11,8 @@ import ReactiveSwift
 import ARKit
 
 class ARCombatViewModel {
-    var joystickOutputData = MutableProperty<JoystickModel?>(nil)
+    var joystickOutputData = MutableProperty<ControlModel?>(nil)
     
-    let joystickViewModel = JoystickViewModel()
     let aircraftViewModel = AircraftViewModel()
     var timer:Timer?
     
@@ -26,29 +25,43 @@ class ARCombatViewModel {
     }
     
     func resetAircraftPosition() {
+        timer?.invalidate()
+        timer = nil
         aircraftViewModel.resetPosition()
     }
     
-    func aircraftBeginRotate(rotation: SCNVector3) {
-        aircraftViewModel.beginRotate(rotation: rotation)
+    func aircraftRotate(rotation: SCNVector3) {
+        aircraftViewModel.rotate(rotation: rotation)
     }
     
-    func aircraftStopRotate() {
-        aircraftViewModel.stopRotate()
-    }
-    
-    func getJoystickView(width: CGFloat, height: CGFloat) -> ARJoystickSKScene {
-        joystickOutputData.signal.observeValues { (data:JoystickModel?) in
+    func getJoystickView(width: CGFloat, height: CGFloat) -> AircraftControllerSKScene {
+        joystickOutputData.signal.observeValues { (data:ControlModel?) in
             if let data = data {
-                let rotVector = SCNVector3(Float(-data.pitch) * Constants.kRotationFactor, Float.zero, Float(-data.roll) * Constants.kRotationFactor)
-                self.aircraftBeginRotate(rotation: rotVector)
-                self.timer = Timer.scheduledTimer(timeInterval: Constants.kAnimationDurationMoving, target: self,
-                                                  selector: #selector(self.aircraftMoveForward),
-                                                  userInfo: nil, repeats: true)
+                //debugPrint("Model pitch: \(data.pitch) roll: \(data.roll) yaw: \(data.yaw)")
+                let rotVector = SCNVector3(Float(-data.pitch) * Constants.kRotationFactor, Float(-data.yaw) * Constants.kYawFactor, Float(-data.roll) * Constants.kRotationFactor)
+                if rotVector.equals(SCNVector3Zero){
+                    debugPrint("Stop rotate")
+                    self.timer?.invalidate()
+                    self.timer = nil;
+                    self.aircraftViewModel.moveForward()
+                } else {
+                    debugPrint("Start rotate \(data.description)")
+                    self.aircraftRotate(rotation: rotVector)
+                    if self.timer != nil {
+                        return
+                    }
+                    self.timer = Timer.scheduledTimer(timeInterval: Constants.kAnimationDurationMoving, target: self,
+                                                      selector: #selector(self.aircraftMoveForward),
+                                                      userInfo: nil, repeats: true)
+                }
             } else {
-                self.aircraftStopRotate()
+               self.aircraftViewModel.moveForward()
             }
         }
-        return joystickViewModel.getJoystickView(width: width, height: height, outputData: joystickOutputData)
+        
+        let scene = AircraftControllerSKScene(size: CGSize(width: width, height: height), data:joystickOutputData)
+        scene.scaleMode = .resizeFill
+        
+        return scene
     }
 }
