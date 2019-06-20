@@ -1,6 +1,6 @@
 //
 //  AircraftController
-//  Joystick
+//
 
 import SpriteKit
 
@@ -102,7 +102,6 @@ open class JoystickComponent: SKSpriteNode {
 
 //MARK: - JoystickBase
 open class JoystickBase: JoystickComponent {
-    // coming soon...
 }
 
 //MARK: - JoystickStick
@@ -163,7 +162,7 @@ open class YawSlider: SKSpriteNode {
             img.draw(in: CGRect(origin: CGPoint.zero, size: needSize), blendMode: .normal, alpha: 1)
         } else {
             color.set()
-           // rectPath.fill()
+            rectPath.fill()
         }
         
         let needImage = UIGraphicsGetImageFromCurrentImageContext()!
@@ -173,7 +172,7 @@ open class YawSlider: SKSpriteNode {
     
 }
 
-//MARK: - AnalogJoystick
+//MARK: - AircraftController
 open class AircraftController: SKNode {
     var trackingHandler: ((ControlModel) -> ())?
     var beginHandler: (() -> Void)?
@@ -249,7 +248,7 @@ open class AircraftController: SKNode {
         let stickDiameter = widths.stick ?? widths.stickBase * 0.6
         let yawTrackWidth = widths.yawTrack ?? widths.stickBase
         let yawWidth = widths.yawSlider ?? yawTrackWidth * 0.2
-        let yawHeight = yawWidth * 3.0
+        let yawHeight = yawWidth * 2.0
         
         let jColors = colors ?? (stickBase: nil, stick: nil, yawSlider: nil, yawTrack: nil)
         let jImages = images ?? (stickBase: nil, stick: nil, yawSlider: nil)
@@ -276,7 +275,7 @@ open class AircraftController: SKNode {
                      images: (stickBase: UIImage?, stick: UIImage?, yawSlider: UIImage?)? = nil,
                      positions: (stickBase: CGPoint?, stick: CGPoint?, yawSlider: CGPoint?, yawTrack: CGPoint?)? = nil) {
         let jWidths:(stickBase: CGFloat, stick: CGFloat?, yawSlider: CGFloat?, yawTrack: CGFloat?) =
-            (stickBase: width/3, stick: width/3 * 0.6, yawSlider: width/3 * 0.2, yawTrack: width/3)
+            (stickBase: width/3, stick: width/3 * 0.6, yawSlider: width/3 * 0.3, yawTrack: width/3)
         let jPositions = positions ?? (stickBase: CGPoint(x: width/3, y: 0),
                                        stick: CGPoint(x: width/3, y: 0),
                                        yawSlider: CGPoint(x: -width/3, y: 0),

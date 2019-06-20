@@ -39,6 +39,7 @@ class ARCombatViewModel {
             if let data = data {
                 //debugPrint("Model pitch: \(data.pitch) roll: \(data.roll) yaw: \(data.yaw)")
                 let rotVector = SCNVector3(Float(-data.pitch) * Constants.kRotationFactor, Float(-data.yaw) * Constants.kYawFactor, Float(-data.roll) * Constants.kRotationFactor)
+                
                 if rotVector.equals(SCNVector3Zero){
                     debugPrint("Stop rotate")
                     self.timer?.invalidate()

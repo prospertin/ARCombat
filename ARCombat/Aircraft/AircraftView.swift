@@ -43,15 +43,15 @@ class AircraftView: SCNNode {
                     debugPrint("Rotating: \(self.eulerAngles) in main thread \(Thread.isMainThread)")
                     self.eulerAngles.x += rot.x
                     self.eulerAngles.y += rot.y
-                    self.eulerAngles.z += rot.z
-                    //self.wrapperNode.eulerAngles.z += rot.z // Rotate the wrapper so the yaw is parallel to the earth
+                    //self.eulerAngles.z += rot.z
+                    self.wrapperNode.eulerAngles.z += rot.z // Rotate the wrapper and not the aircraft view, so the yaw is parallel and the pitch perpendicular to the horizon. This is to simplify the calculationa and easier for the user too.
                 }
             } else {
                 // Reset to the original orientation if rotation is nil
                 self.eulerAngles.x = 0
                 self.eulerAngles.y = 0
-                self.eulerAngles.z = 0
-                //self.wrapperNode.eulerAngles.z = 0
+                //self.eulerAngles.z = 0
+                self.wrapperNode.eulerAngles.z = 0  // Rotate the wrapper so the yaw is parallel to the earth
             }
         }
     }

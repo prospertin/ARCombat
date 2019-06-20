@@ -17,7 +17,7 @@ class Constants {
     
     static let kRotationRadianPerLoop: CGFloat = 0.1
     static let kRollRadians: CGFloat = 0.6
-    static let kSpeed: CGFloat = 1.00
+    static let kSpeed: CGFloat = 3.00
     static let kMovingLengthPerLoop: Float = 0.7
     static let kAnimationDurationMoving: TimeInterval = 0.2
     static let kAnimationDurationYawn: TimeInterval = 2.0
