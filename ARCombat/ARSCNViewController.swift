@@ -12,64 +12,117 @@ import ARKit
 
 class ARSCNViewController: UIViewController, ARSCNViewDelegate {
 
+    let arscnView = ARSCNView()
+    let startButtonOnLabel = "Start"
+    let startButtonOffLabel = "Stop"
     
-    let aircraftViewModel = AircraftViewModel()
+    lazy var skView: SKView = {
+        let view = SKView()
+        view.isMultipleTouchEnabled = true
+        view.backgroundColor = .clear
+        view.isHidden = false
+        return view
+    }()
+    
+    let startButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .gray
+        button.addTarget(self, action: #selector(startStopGame), for: .touchUpInside)
+        return button
+    }()
+    
+    let mainViewModel = ARCombatViewModel()
     var aircraftView:AircraftView?
-    var timer:Timer?
+    var joytickView:AircraftControllerSKScene?
     
-    @IBOutlet var sceneView: ARSCNView!
+    //let yawSlider = YawSlidecoderme: .zero)
     
-    @IBAction func switchToggle(_ sender: UISwitch) {
-        if sender.isOn {
-            moveForward()
-        } else {
-            // ONLY USE TO PAUSE. Plane can not stop in mid air: aircraftViewModel.stopMovingForward(position: view.worldPosition, orientation: view.worldOrientation)
-            aircraftViewModel.resetPosition()
-        }
-    }
     // MARK: - actions
-    @IBAction func upLongPressed(_ sender: UILongPressGestureRecognizer) {
-        executeRotation(r: Constants.kRotationRadianPerLoop, axe: CoordinateAxe.xAxe, sender: sender)
-    }
-    
-    @IBAction func downLongPressed(_ sender: UILongPressGestureRecognizer) {
-        executeRotation(r: -Constants.kRotationRadianPerLoop, axe: CoordinateAxe.xAxe, sender: sender)
-    }
-    
-    @IBAction func moveLeftLongPressed(_ sender: UILongPressGestureRecognizer) {
-       executeRotation(r: Constants.kRotationRadianPerLoop, axe: CoordinateAxe.yAxe, sender: sender)
-       
-    }
-    
-    @IBAction func moveRightLongPressed(_ sender: UILongPressGestureRecognizer) {
-        executeRotation(r: -Constants.kRotationRadianPerLoop, axe: CoordinateAxe.yAxe, sender: sender)
-       
-    }
     // MARK: Routine Initializers
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupARSCNView()
+        setupSKView()
+        setupSKViewScene()
+     //   setupYawSliderView()
+        setupStartButton()
+    }
+
+    func setupARSCNView() {
+        // Create a new scene and set the scene to the view
+        arscnView.scene = SCNScene()
+        // Add arscnView to main view
+        view.addSubview(arscnView)
+        arscnView.setContraintsToFillSuperview()
         // Set the view's delegate
-        sceneView.delegate = self
+        arscnView.delegate = self
         // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
-        setupScene()
+        arscnView.showsStatistics = true
+        arscnView.autoenablesDefaultLighting = true
+     //   arscnView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
     }
-
-    func setupScene() {
-        // Create a new scene
-        let scene = SCNScene()
-        
-        // Set the scene to the view
-        sceneView.scene = scene//
-        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
-        sceneView.autoenablesDefaultLighting = true
+    //Setup the SK view that contains the SK joystick ViewScene
+    func setupSKView() {
+        view.addSubview(skView)
+        skView.setConstraints(nil,
+                              left: view.leftAnchor,
+                              bottom: view.bottomAnchor,
+                              right: view.rightAnchor,
+                              topConstant: 0,
+                              leftConstant: 0,
+                              bottomConstant: 0,
+                              rightConstant: 0,
+                              widthConstant: 0,
+                              heightConstant: 180)
     }
-
+    //Add the joystick viewScene to the skview
+    func setupSKViewScene() {
+        let scene = mainViewModel.getJoystickView(width: view.bounds.size.width, height: 180)
+        skView.presentScene(scene)
+        skView.ignoresSiblingOrder = true
+        joytickView = scene
+        joytickView?.aircraftController.isUserInteractionEnabled = false
+        // skView.showsFPS = true
+        //    skView.showsNodeCount = true
+        //    skView.showsPhysics = true
+    }
+    
+    func setupStartButton() {
+        view.addSubview(startButton)
+        startButton.setTitle(startButtonOnLabel, for: .normal)
+        startButton.setConstraints(nil,
+                                   left: nil,
+                                   bottom: view.bottomAnchor,
+                                   right: nil,
+                                   topConstant: 0,
+                                   leftConstant: 0,
+                                   bottomConstant: 20,
+                                   rightConstant: 0,
+                                   widthConstant: 80,
+                                   heightConstant: 30)
+        startButton.anchorCenterXToSuperview()
+    }
+    
+    @objc func startStopGame() {
+        if startButton.currentTitle == startButtonOnLabel {
+            joytickView?.aircraftController.isUserInteractionEnabled = true
+            mainViewModel.aircraftRotate(rotation: self.aircraftView!.eulerAngles) // Initialize to original orientation
+            mainViewModel.aircraftViewModel.moveForward() // aircraftMoveForward()
+            startButton.setTitle(startButtonOffLabel, for: .normal)
+        } else {
+            joytickView?.aircraftController.reset() //Reset the command first before resetting the position else, it still forwards
+            joytickView?.aircraftController.isUserInteractionEnabled = false
+            mainViewModel.resetAircraftPosition()
+            startButton.setTitle(startButtonOnLabel, for: .normal)
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let configuration = ARWorldTrackingConfiguration()
-        sceneView.session.run(configuration)
+        arscnView.session.run(configuration)
         addAircraft()
     }
     
@@ -77,41 +130,14 @@ class ARSCNViewController: UIViewController, ARSCNViewDelegate {
         super.viewWillDisappear(animated)
         
         // Pause the view's session
-        sceneView.session.pause()
+        arscnView.session.pause()
     }
-    
+
     // MARK: Private
     private func addAircraft() {
-        if let view = aircraftViewModel.getAircraftView(name: "myAircraft") {
-            sceneView.scene.rootNode.addChildNode(view)
+        if let view = mainViewModel.getAircraftView(name: "myAircraft") {
+            arscnView.scene.rootNode.addChildNode(view)
             self.aircraftView = view
         }
     }
-    
-    @objc private func moveForward() {
-        if let view = aircraftView {
-            aircraftViewModel.moveForward(eulerAngles: view.eulerAngles)
-        }
-    }
-    
-    private func executeRotation(r: CGFloat, axe: CoordinateAxe, sender: UILongPressGestureRecognizer) {
-        
-        guard let view = aircraftView else {
-            return
-        }
-        if sender.state == .ended {
-            aircraftViewModel.stopRotate(axe: axe)
-            if let tm = timer {
-                aircraftViewModel.moveForward(eulerAngles: view.eulerAngles)
-                tm.invalidate()
-                timer = nil
-            }
-        } else if sender.state == .began {
-            aircraftViewModel.beginRotate(angle: r, axe: axe)
-            timer = Timer.scheduledTimer(timeInterval: Constants.kAnimationDurationMoving, target: self,
-                                         selector: #selector(moveForward),
-                                         userInfo: nil, repeats: true)
-        }
-    }
-
 }

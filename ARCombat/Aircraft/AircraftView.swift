@@ -13,7 +13,7 @@ import ReactiveSwift
 class AircraftView: SCNNode {
     var wrapperNode:SCNNode!
     
-    init(positionChange: MutableProperty<SCNVector3?>, rotation: MutableProperty<SCNVector4?>) {
+    init(positionChange: MutableProperty<SCNVector3?>, rotation: MutableProperty<SCNVector3?>) {
         super.init()
         wrapperNode = SCNNode()
         addChildNode(wrapperNode)
@@ -21,7 +21,7 @@ class AircraftView: SCNNode {
         positionChange.signal.observeValues { (pos:SCNVector3?) in
             if let pos = pos {
                 if pos.x == 0 && pos.y == 0 && pos.z == 0 {
-                    // Plane stop completely
+                    // Plane stop completely. Only happens if parked on the ground
                     self.removeAction(forKey: Constants.kForwardAction)
                 } else {
                     let action = SCNAction.moveBy(x: CGFloat(pos.x), y: CGFloat(pos.y), z: CGFloat(pos.z), duration: Constants.kAnimationDurationMoving)
@@ -35,37 +35,23 @@ class AircraftView: SCNNode {
             }
         }
         
-        rotation.signal.observeValues { (viewRotation:SCNVector4?)in
-            if let rot = viewRotation {
+        rotation.signal.observeValues { (deltaRotation:SCNVector3?)in
+            if let rot = deltaRotation {
                 if rot.x == 0 && rot.y == 0 && rot.z == 0 {
                     // Stop current rotation
-                    self.removeAction(forKey: Constants.kIncrementalRotationAction)
-                    //Hack for now: create auto roll if yaw. Remove when implement separate yaw and roll
-                    let roll = SCNAction.rotateTo(x: 0, y: 0, z: CGFloat(0),
-                                                  duration: Constants.kAnimationDurationYawn)
-                    // NOTE Make the wrapper node roll NOT 'self' node
-                    self.wrapperNode.runAction(roll, forKey: Constants.kRotateToAction)
-                    
                 } else {
-                    let action = SCNAction.rotateBy(x: CGFloat(rot.x),
-                                                    y: CGFloat(rot.y),
-                                                    z: CGFloat(rot.z),
-                                                    duration: TimeInterval(rot.w))
-                    let loopAction = SCNAction.repeatForever(action)
-                    self.runAction(loopAction, forKey: Constants.kIncrementalRotationAction)
-                    //Hack for now: create auto roll if yaw. Remove when implement separate yaw and roll
-                    if rot.y != 0 {
-                        let roll = SCNAction.rotateTo(x: 0, y: 0, z: CGFloat(rot.y) * Constants.kYawnRollFactor,
-                                                      duration: Constants.kAnimationDurationYawn)
-                        // NOTE Make the wrapper node roll NOT 'self' node
-                        self.wrapperNode.runAction(roll, forKey: Constants.kRotateToAction)
-                    }
+                    debugPrint("Rotating: \(self.eulerAngles) in main thread \(Thread.isMainThread)")
+                    self.eulerAngles.x += rot.x
+                    self.eulerAngles.y += rot.y
+                    //self.eulerAngles.z += rot.z
+                    self.wrapperNode.eulerAngles.z += rot.z // Rotate the wrapper and not the aircraft view, so the yaw is parallel and the pitch perpendicular to the horizon. This is to simplify the calculationa and easier for the user too.
                 }
             } else {
-                // Reset to the original orientation if nil
-                let action = SCNAction.rotateTo(x: 0, y: 0, z: 0, duration: Constants.kAnimationDurationMoving)
-                self.runAction(action, forKey: Constants.kRotateToAction)
-                self.wrapperNode.runAction(action, forKey: Constants.kRotateToAction)
+                // Reset to the original orientation if rotation is nil
+                self.eulerAngles.x = 0
+                self.eulerAngles.y = 0
+                //self.eulerAngles.z = 0
+                self.wrapperNode.eulerAngles.z = 0  // Rotate the wrapper so the yaw is parallel to the earth
             }
         }
     }
